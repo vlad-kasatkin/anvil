@@ -40,10 +40,16 @@ class AnvilSubplugin : KotlinGradleSubplugin<AbstractCompile> {
     // compile tasks shouldn't be mixed.
     val srcGenDir = File(project.buildDir, "anvil/src-gen-${kotlinCompile.name}")
 
+    val extension = project.extensions.findByType(AnvilExtension::class.java) ?: AnvilExtension()
+
     return listOf(
         SubpluginOption(
             key = "src-gen-dir",
             value = srcGenDir.absolutePath
+        ),
+        SubpluginOption(
+            key = "generate-dagger-factories",
+            value = extension.generateDaggerFactories.toString()
         )
     )
   }
