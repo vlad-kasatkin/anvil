@@ -4,7 +4,6 @@ apply plugin: 'com.squareup.anvil'
 
 dependencies {
   api deps.dagger2.dagger
-  api deps.kotlin.stdlib
 
   kapt deps.dagger2.compiler
 }

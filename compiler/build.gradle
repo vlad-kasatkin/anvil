@@ -6,7 +6,6 @@ dependencies {
   implementation project(':annotations')
   implementation deps.dagger2.dagger
   implementation deps.jsr250
-  implementation deps.kotlin.stdlib
 
   compileOnly deps.auto.service.annotations
   compileOnly deps.kotlin.compiler
