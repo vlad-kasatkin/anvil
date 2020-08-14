@@ -42,7 +42,6 @@ open class CheckMixedSourceSet(
     }
   }
 
-  @OptIn(ExperimentalStdlibApi::class)
   private fun getSourceFilesAndroidProject(): Sequence<File> {
     return project.androidVariants()
         .findVariantForCompileTask(compileTask)
