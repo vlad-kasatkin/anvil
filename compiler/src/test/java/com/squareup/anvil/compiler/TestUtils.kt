@@ -90,14 +90,12 @@ internal val Result.daggerModule4: Class<*>
 internal val Result.innerModule: Class<*>
   get() = classLoader.loadClass("com.squareup.test.ComponentInterface\$InnerModule")
 
-@OptIn(ExperimentalStdlibApi::class)
 internal val Class<*>.hintContributes: KClass<*>?
   get() = contributedProperties(HINT_CONTRIBUTES_PACKAGE_PREFIX)
       ?.filter { it.java == this }
       ?.also { assertThat(it.size).isEqualTo(1) }
       ?.first()
 
-@OptIn(ExperimentalStdlibApi::class)
 internal val Class<*>.hintContributesScope: KClass<*>?
   get() = contributedProperties(HINT_CONTRIBUTES_PACKAGE_PREFIX)
       ?.also { assertThat(it.size).isEqualTo(2) }
@@ -105,14 +103,12 @@ internal val Class<*>.hintContributesScope: KClass<*>?
       ?.also { assertThat(it.size).isEqualTo(1) }
       ?.first()
 
-@OptIn(ExperimentalStdlibApi::class)
 internal val Class<*>.hintBinding: KClass<*>?
   get() = contributedProperties(HINT_BINDING_PACKAGE_PREFIX)
       ?.filter { it.java == this }
       ?.also { assertThat(it.size).isEqualTo(1) }
       ?.first()
 
-@OptIn(ExperimentalStdlibApi::class)
 internal val Class<*>.hintBindingScope: KClass<*>?
   get() = contributedProperties(HINT_BINDING_PACKAGE_PREFIX)
       ?.also { assertThat(it.size).isEqualTo(2) }
@@ -120,7 +116,6 @@ internal val Class<*>.hintBindingScope: KClass<*>?
       ?.also { assertThat(it.size).isEqualTo(1) }
       ?.first()
 
-@OptIn(ExperimentalStdlibApi::class)
 private fun Class<*>.contributedProperties(packagePrefix: String): List<KClass<*>>? {
   // The capitalize() doesn't make sense, I don't know where this is coming from. Maybe it's a
   // bug in the compile testing library?
